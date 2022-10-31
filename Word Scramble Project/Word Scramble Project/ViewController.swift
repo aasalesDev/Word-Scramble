@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func startGame() {
+    @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     
     func addNavigationItem(){
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(startGame))
     }
     
     @objc func promptForAnswer(){
